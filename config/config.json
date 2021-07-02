@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "sekolah",
+    "password": "root",
+    "database": "app_sekolah",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
