@@ -1,12 +1,15 @@
 const User = require('../../models').User
+const bcrypt = require('bcrypt')
 
 exports.userCreate = async function (req, res) {
+    const salt = await bcrypt.genSaltSync(10)
+    const hash = await bcrypt.hashSync(req.body.password, salt)
     try {
         await User.create({
             nama: req.body.nama,
             no_induk: req.body.no_induk,
             email: req.body.email,
-            password: req.body.password
+            password: hash
         })
 
         res.status(200).json({
@@ -73,7 +76,7 @@ exports.userUpdate = async function (req, res) {
             }
         })
 
-        const userDetail = await User.findByPk(1, {attributes: { exclude: ["password"] }})
+        const userDetail = await User.findByPk(req.params.id, {attributes: { exclude: ["password"] }})
 
         res.status(200).json({
             status: "success",

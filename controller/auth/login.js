@@ -1,25 +1,50 @@
 const User = require('../../models').User
+const { Op } = require('sequelize')
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+const { validationResult } = require('express-validator')
 
 exports.login = async function (req, res) {
     try {
         const user = await User.findOne({
             where: {
-                email: req.body.email
+                [Op.or]: [
+                    {
+                        email: {
+                            [Op.like]: req.body.email
+                        }
+                    },
+                    {
+                        no_induk: {
+                            [Op.like]: req.body.no_induk
+                        }
+                    }
+                ]
             }
         })
 
         if(user) {
-           if (req.body.password === user.password) {
+           if (bcrypt.compareSync(req.body.password, user.password)) {
+               const token = jwt.sign({id: user.id }, process.env.TOKEN_SECRET)
+
+               const userData = await User.findByPk(user.id, { attributes: {
+                   exclude: ["password"]
+               }})
+
                res.status(200).json({
                    status: "success",
-                   msg: "Login berhasil!"
+                   data: userData,
+                   token: token
                })
-           } 
+           } else {
+               res.status(500).json({
+                   status: "error",
+                   msg: "Password anda tidak valid!"
+               })
+           }
         }
 
     } catch (error) {
-        res.json({
-            msg: "email atau password tidak valid."
-        })
+        console.log(error)
     }
 }
