@@ -2,7 +2,6 @@ const User = require('../../models').User
 const { Op } = require('sequelize')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const { validationResult } = require('express-validator')
 
 exports.login = async function (req, res) {
     try {
@@ -46,5 +45,8 @@ exports.login = async function (req, res) {
 
     } catch (error) {
         console.log(error)
+        res.status(500).json({
+            msg: "Email, Nomor Induk atau password anda tidak valid."
+        })
     }
 }
