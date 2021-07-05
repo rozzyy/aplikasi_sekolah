@@ -53,6 +53,15 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
+      kelas: {
+        type: Sequelize.STRING
+      },
+      jurusan: {
+        type: Sequelize.STRING
+      },
+      rombel: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
