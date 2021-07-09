@@ -40,6 +40,15 @@ module.exports = {
       deletedAt: {
         allowNull: true,
         type: Sequelize.DATE
+      },
+      siswaId: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        references: {
+          model: "Siswas",
+          key: "id"
+        },
+        onDelete: "CASCADE"
       }
     });
   },

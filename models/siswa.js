@@ -50,5 +50,11 @@ module.exports = (sequelize, DataTypes) => {
     paranoid: true
   })
 
+  Siswa.associate = function(models) {
+    Siswa.hasOne(models.Ortu, {
+      as: "ortus"
+    })
+  }
+
   return Siswa
 }
