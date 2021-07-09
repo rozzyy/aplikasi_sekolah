@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Gurus', {
+    await queryInterface.createTable('Siswas', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,10 +11,13 @@ module.exports = {
       nama: {
         type: Sequelize.STRING
       },
-      nuptk: {
+      nipd: {
         type: Sequelize.STRING
       },
       jenis_kelamin: {
+        type: Sequelize.STRING
+      },
+      nisn: {
         type: Sequelize.STRING
       },
       tmpt_lahir: {
@@ -23,19 +26,22 @@ module.exports = {
       tgl_lahir: {
         type: Sequelize.DATE
       },
-      nip: {
-        type: Sequelize.STRING
-      },
-      status_pegawai: {
-        type: Sequelize.STRING
-      },
-      jenis_ptk: {
+      nik: {
         type: Sequelize.STRING
       },
       agama: {
         type: Sequelize.STRING
       },
       alamat: {
+        type: Sequelize.STRING
+      },
+      rt: {
+        type: Sequelize.STRING
+      },
+      rw: {
+        type: Sequelize.STRING
+      },
+      dusun: {
         type: Sequelize.STRING
       },
       kelurahan: {
@@ -47,6 +53,12 @@ module.exports = {
       kodepos: {
         type: Sequelize.STRING
       },
+      jenis_tinggal: {
+        type: Sequelize.STRING
+      },
+      transportasi: {
+        type: Sequelize.STRING
+      },
       telepon: {
         type: Sequelize.STRING
       },
@@ -56,25 +68,76 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
-      sk_cpns: {
+      skhun: {
         type: Sequelize.STRING
       },
-      tgl_sk: {
-        type: Sequelize.DATE
+      penerima_kps: {
+        type: Sequelize.BOOLEAN
       },
-      golongan: {
+      no_kps: {
         type: Sequelize.STRING
       },
-      nama_ibu: {
+      rombel: {
         type: Sequelize.STRING
       },
-      status: {
+      no_pun: {
         type: Sequelize.STRING
       },
-      nik: {
+      no_ijazah: {
         type: Sequelize.STRING
       },
-      no_kk: {
+      penerima_kip: {
+        type: Sequelize.BOOLEAN
+      },
+      no_kip: {
+        type: Sequelize.STRING
+      },
+      nama_kip: {
+        type: Sequelize.STRING
+      },
+      no_akta: {
+        type: Sequelize.STRING
+      },
+      bank: {
+        type: Sequelize.STRING
+      },
+      no_rek: {
+        type: Sequelize.STRING
+      },
+      layak_pip: {
+        type: Sequelize.BOOLEAN
+      },
+      alasan_pip: {
+        type: Sequelize.STRING
+      },
+      kbthn_khusus: {
+        type: Sequelize.STRING
+      },
+      sekolah_asal: {
+        type: Sequelize.STRING
+      },
+      anak_ke: {
+        type: Sequelize.INTEGER
+      },
+      lintang: {
+        type: Sequelize.STRING
+      },
+      bujur: {
+        type: Sequelize.STRING
+      },
+      berat_badan: {
+        type: Sequelize.STRING
+      },
+      tinggi_badan: {
+        type: Sequelize.STRING
+      },
+      ling_kepala: {
+        type: Sequelize.STRING
+      },
+      jmlh_saudara: {
+        type: Sequelize.STRING
+      },
+      jarak_rumah: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -92,6 +155,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Gurus');
+    await queryInterface.dropTable('Siswas');
   }
 };
