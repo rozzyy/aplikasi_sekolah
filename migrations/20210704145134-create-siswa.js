@@ -151,6 +151,15 @@ module.exports = {
       deletedAt: {
         allowNull: true,
         type: Sequelize.DATE
+      },
+      roleId: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        references: {
+          model: "Roles",
+          key: "id"
+        },
+        onDelete: "CASCADE"
       }
     });
   },

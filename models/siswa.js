@@ -56,5 +56,12 @@ module.exports = (sequelize, DataTypes) => {
     })
   }
 
+  Siswa.associate = function(models) {
+    Siswa.belongsTo(models.Role, {
+      foreignKey: "roleId",
+      as: "role"
+    })
+  }
+
   return Siswa
 }

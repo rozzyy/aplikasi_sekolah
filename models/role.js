@@ -9,5 +9,11 @@ module.exports = (sequelize, DataTypes) => {
     paranoid: true
   })
 
+  Role.associate = function(models) {
+    Role.hasOne(models.Role, {
+      as: "roles"
+    })
+  }
+
   return Role
 }

@@ -55,5 +55,12 @@ module.exports = (sequelize, DataTypes) => {
     paranoid: true
   })
 
+  Pegawai.associate = function(models) {
+    Pegawai.belongsTo(models.Role, {
+      foreignKey: "roleId",
+      as: "role"
+    })
+  }
+
   return Pegawai
 }

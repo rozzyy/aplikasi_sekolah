@@ -22,5 +22,12 @@ module.exports = (sequelize, DataTypes) => {
     paranoid: true
   })
 
+  User.associate = function(models) {
+    User.belongsTo(models.Role, {
+      foreignKey: "roleId",
+      as: "role"
+    })
+  }
+
   return User
 }
