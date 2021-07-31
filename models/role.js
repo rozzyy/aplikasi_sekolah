@@ -1,4 +1,3 @@
-'use strict'
 module.exports = (sequelize, DataTypes) => {
   const Role = sequelize.define("Role", {
     name: {
@@ -10,8 +9,9 @@ module.exports = (sequelize, DataTypes) => {
   })
 
   Role.associate = function(models) {
-    Role.hasOne(models.Role, {
-      as: "roles"
+    Role.hasMany(models.User, {
+      foreignKey: "roleId",
+      as: "roleId"
     })
   }
 

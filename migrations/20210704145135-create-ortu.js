@@ -41,24 +41,6 @@ module.exports = {
         allowNull: true,
         type: Sequelize.DATE
       },
-      siswaId: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
-        references: {
-          model: "Siswas",
-          key: "id"
-        },
-        onDelete: "CASCADE"
-      },
-      roleId: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
-        references: {
-          model: "Roles",
-          key: "id"
-        },
-        onDelete: "CASCADE"
-      }
     });
   },
   down: async (queryInterface, Sequelize) => {

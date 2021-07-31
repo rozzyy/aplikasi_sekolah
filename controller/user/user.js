@@ -29,16 +29,15 @@ exports.userAll = async function (req, res) {
         const userCollection = await User.findAll({
             attributes: {
                 exclude: ["password"]
-            }
+            },
+            include: ["Role"]
         })
         res.status(200).json({
             status: "success",
             data: userCollection
         })
     } catch (error) {
-        res.json({
-            msg: "Data tidak ditemukan."
-        })
+        res.json(error)
     }
 }
 

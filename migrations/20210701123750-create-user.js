@@ -39,14 +39,14 @@ module.exports = {
         type: Sequelize.DATE
       },
       roleId: {
-        type: Sequelize.INTEGER,
         allowNull: true,
+        type: Sequelize.INTEGER,
         references: {
-          model: "Roles",
-          key: "id"
+          model: 'Roles',
+          key: 'id'
         },
         onDelete: "CASCADE"
-      }
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {

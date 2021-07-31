@@ -1,5 +1,3 @@
-'use strict'
-
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define("User", {
     nama: {
@@ -25,9 +23,14 @@ module.exports = (sequelize, DataTypes) => {
   User.associate = function(models) {
     User.belongsTo(models.Role, {
       foreignKey: "roleId",
-      as: "role"
+    }),
+
+    User.hasOne(models.Siswa, {
+      foreignKey: "siswaId",
+      as: "siswaId"
     })
   }
+
 
   return User
 }

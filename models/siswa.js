@@ -51,15 +51,8 @@ module.exports = (sequelize, DataTypes) => {
   })
 
   Siswa.associate = function(models) {
-    Siswa.hasOne(models.Ortu, {
-      as: "ortus"
-    })
-  }
-
-  Siswa.associate = function(models) {
-    Siswa.belongsTo(models.Role, {
-      foreignKey: "roleId",
-      as: "role"
+    Siswa.belongsTo(models.User, {
+        foreignKey: "userId",
     })
   }
 

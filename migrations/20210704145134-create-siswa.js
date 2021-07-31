@@ -9,15 +9,19 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       nama: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       nipd: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       jenis_kelamin: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       nisn: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       tmpt_lahir: {
@@ -152,15 +156,15 @@ module.exports = {
         allowNull: true,
         type: Sequelize.DATE
       },
-      roleId: {
-        type: Sequelize.INTEGER,
+      userId: {
         allowNull: true,
+        type: Sequelize.INTEGER,
         references: {
-          model: "Roles",
-          key: "id"
+          model: 'Users',
+          key: 'id'
         },
         onDelete: "CASCADE"
-      }
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {

@@ -13,19 +13,5 @@ module.exports = (sequelize, DataTypes) => {
     paranoid: true
   })
 
-  Ortu.associate = function(models) {
-    Ortu.belongsTo(models.Siswa, {
-      foreignKey: "siswaId",
-      as: 'siswa'
-    })
-  }
-
-  Ortu.associate = function(models) {
-    Ortu.belongsTo(models.Role, {
-      foreignKey: "roleId",
-      as: "role"
-    })
-  }
-
   return Ortu
 }

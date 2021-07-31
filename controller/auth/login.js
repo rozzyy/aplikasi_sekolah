@@ -45,7 +45,7 @@ exports.login = async function (req, res) {
 
     } catch (error) {
         console.log(error)
-        res.status(500).json({
+        res.json({
             msg: "Email, Nomor Induk atau password anda tidak valid."
         })
     }
