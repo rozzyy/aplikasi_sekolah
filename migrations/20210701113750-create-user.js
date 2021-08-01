@@ -15,7 +15,6 @@ module.exports = {
       no_induk: {
         allowNull: false,
         type: Sequelize.STRING,
-        unique: true
       },
       email: {
         allowNull: false,

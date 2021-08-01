@@ -155,6 +155,9 @@ module.exports = {
       nuks: {
         type: Sequelize.STRING
       },
+      jabatan: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -166,6 +169,15 @@ module.exports = {
       deletedAt: {
         allowNull: true,
         type: Sequelize.DATE
+      },
+      userId: {
+        allowNull: true,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Users',
+          key: 'id'
+        },
+        onDelete: "CASCADE"
       },
     });
   },

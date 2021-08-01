@@ -2,7 +2,8 @@
 
 module.exports = (sequelize, DataTypes) => {
   const Jurusan = sequelize.define("Jurusan", {
-    nama: DataTypes.STRING
+    nama: DataTypes.STRING,
+    kode: DataTypes.STRING,
   }, {
     paranoid: true
   })

@@ -1,5 +1,6 @@
 const User = require('../../models').User
 const bcrypt = require('bcrypt')
+const Role = require('../../models').Role
 
 exports.userCreate = async function (req, res) {
     const salt = await bcrypt.genSaltSync(10)
@@ -9,7 +10,8 @@ exports.userCreate = async function (req, res) {
             nama: req.body.nama,
             no_induk: req.body.no_induk,
             email: req.body.email,
-            password: hash
+            password: hash,
+            roleId: req.body.roleId,
         })
 
         res.status(200).json({
@@ -49,14 +51,19 @@ exports.userDetail = async function (req, res) {
             },  
             where: {
                 id: req.params.id
+            },
+            include: {
+                model: Role,
+                as: "Role"
             }
         })
+
         res.status(200).json({
             status: "success",
             data: userCollection
         })
     } catch (error) {
-        res.json({
+        res.status(400).json({
             msg: "Data tidak ditemukan."
         })
     }
@@ -68,7 +75,8 @@ exports.userUpdate = async function (req, res) {
             nama: req.body.nama,
             no_induk: req.body.no_induk,
             email: req.body.email,
-            password: req.body.password
+            password: req.body.password,
+            roleId: req.body.roleId,
         }, {
             where: {
                 id: req.params.id

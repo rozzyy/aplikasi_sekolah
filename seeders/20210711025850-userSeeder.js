@@ -24,7 +24,16 @@ module.exports = {
        createdAt: new Date(),
        updatedAt: new Date(),
        roleId: 1
-     }
+     },
+     {
+      nama: "Farah",
+      no_induk: "12345678",
+      email: "farah@gmail.com",
+      password: "12345678",
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      roleId: 2
+    }
    ])
   },
 
@@ -35,5 +44,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
+     return queryInterface.bulkDelete('Users', null, {})
   }
 };

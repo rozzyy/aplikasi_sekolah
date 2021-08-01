@@ -52,7 +52,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Siswa.associate = function(models) {
     Siswa.belongsTo(models.User, {
-        foreignKey: "userId",
+      foreignKey: "userId"
     })
   }
 

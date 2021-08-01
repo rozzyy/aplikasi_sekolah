@@ -10,7 +10,7 @@ const loginSchema = require('../../validation/login/loginVal').loginSchema
 router.post('/user', userController.userCreate)
 router.get('/user', userController.userAll)
 router.get('/user/:id', userController.userDetail)
-router.post('/user/:id', userController.userUpdate)
+router.put('/user/:id', userController.userUpdate)
 router.delete('/user/:id', userController.userDestroy)
 
 router.post('/login', validate(checkSchema(loginSchema)), loginController.login)

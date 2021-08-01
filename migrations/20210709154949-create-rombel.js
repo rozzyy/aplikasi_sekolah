@@ -8,8 +8,14 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      nama: {
+      kelas: {
         type: Sequelize.STRING
+      },
+      jurusan: {
+        type: Sequelize.STRING
+      },
+      ruang: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

@@ -13,5 +13,11 @@ module.exports = (sequelize, DataTypes) => {
     paranoid: true
   })
 
+  Ortu.associate = function(models) {
+    Ortu.belongsTo(models.User, {
+      foreignKey: "userId"
+    })
+  }
+
   return Ortu
 }

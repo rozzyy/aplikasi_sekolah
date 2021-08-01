@@ -50,10 +50,17 @@ module.exports = (sequelize, DataTypes) => {
     karis: DataTypes.STRING,
     lintang: DataTypes.STRING,
     bujur: DataTypes.STRING,
-    nuks: DataTypes.STRING
+    nuks: DataTypes.STRING,
+    jabatan: DataTypes.STRING
   }, {
     paranoid: true
   })
+
+  Pegawai.associate = function(models) {
+    Pegawai.belongsTo(models.User, {
+      foreignKey: "userId"
+    })
+  }
 
   return Pegawai
 }

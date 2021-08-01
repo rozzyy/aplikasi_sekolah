@@ -23,14 +23,19 @@ module.exports = (sequelize, DataTypes) => {
   User.associate = function(models) {
     User.belongsTo(models.Role, {
       foreignKey: "roleId",
-    }),
+    })
 
     User.hasOne(models.Siswa, {
-      foreignKey: "siswaId",
-      as: "siswaId"
+      foreignKey: "userId",
+    })
+
+    User.hasOne(models.Ortu, {
+      foreignKey: "userId",
+    })
+
+    User.hasOne(models.Pegawai, {
+      foreignKey: "userId",
     })
   }
-
-
   return User
 }
