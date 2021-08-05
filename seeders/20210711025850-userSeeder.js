@@ -27,9 +27,9 @@ module.exports = {
      },
      {
       nama: "Farah",
-      no_induk: "12345678",
+      no_induk: "123456789",
       email: "farah@gmail.com",
-      password: "12345678",
+      password: hash,
       createdAt: new Date(),
       updatedAt: new Date(),
       roleId: 2

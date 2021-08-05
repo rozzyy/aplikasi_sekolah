@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     pekerjaan: DataTypes.STRING,
     penghasilan: DataTypes.STRING,
     nik: DataTypes.STRING,
-    status: DataTypes.STRING
+    status_wali: DataTypes.STRING
   }, {
     paranoid: true
   })

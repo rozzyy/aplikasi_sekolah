@@ -1,5 +1,4 @@
 const Siswa = require('../../models').Siswa
-const User = require('../../models').User
 
 exports.Create = async function (req, res) {
     try {

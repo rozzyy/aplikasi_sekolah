@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Ortus', {
+    await queryInterface.createTable('Jadwals', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,23 +11,20 @@ module.exports = {
       nama: {
         type: Sequelize.STRING
       },
-      tahun_lahir: {
-        type: Sequelize.DATE
+      rombelId: {
+        type: Sequelize.INTEGER
       },
-      pendidikan: {
+      jam_mulai: {
         type: Sequelize.STRING
       },
-      pekerjaan: {
+      jam_selesai: {
         type: Sequelize.STRING
       },
-      penghasilan: {
+      hari: {
         type: Sequelize.STRING
       },
-      nik: {
-        type: Sequelize.STRING
-      },
-      status_wali: {
-        type: Sequelize.STRING
+      pegawaiId: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -40,19 +37,10 @@ module.exports = {
       deletedAt: {
         allowNull: true,
         type: Sequelize.DATE
-      },
-      userId: {
-        allowNull: true,
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Users',
-          key: 'id'
-        },
-        onDelete: "CASCADE"
-      },
+      }
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Ortus');
+    await queryInterface.dropTable('Jadwals');
   }
 };

@@ -1,6 +1,5 @@
 const User = require('../../models').User
 const bcrypt = require('bcrypt')
-const Role = require('../../models').Role
 
 exports.userCreate = async function (req, res) {
     const salt = await bcrypt.genSaltSync(10)

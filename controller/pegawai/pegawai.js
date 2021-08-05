@@ -176,3 +176,22 @@ exports.Update =  async function (req, res) {
         })
     }
 }
+
+exports.Delete = async function (req, res) {
+    try {
+        await Pegawai.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+
+        res.status(200).json({
+            message: "Data berhasil dihapus."
+        })
+    } catch (error) {
+        console.log(error)
+        res.json({
+            msg: "Gagal menghapus data pegawai."
+        })
+    }
+}

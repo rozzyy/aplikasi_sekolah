@@ -26,13 +26,15 @@ exports.login = async function (req, res) {
            if (bcrypt.compareSync(req.body.password, user.password)) {
                const token = jwt.sign({id: user.id }, process.env.TOKEN_SECRET)
 
-               const userData = await User.findByPk(user.id, { attributes: {
+               const userData = await User.findByPk(user.id, { include: ["Role"],attributes: {
                    exclude: ["password"]
                }})
-
+               let role = []
+               role.push(userData.Role.name)
                res.status(200).json({
                    status: "success",
                    data: userData,
+                   role: role,
                    token: token
                })
            } else {

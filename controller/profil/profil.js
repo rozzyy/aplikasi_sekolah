@@ -8,7 +8,7 @@ exports.Profil = async function(req, res) {
     try {
         const user = await User.findOne({
             where: {
-                id: req.params.id
+                id: res.locals.apiUser.id
             }
         })
         

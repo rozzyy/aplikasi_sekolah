@@ -1,37 +1,32 @@
-exports.ortuSchema = {
+exports.jadwalSchema = {
     nama: {
         notEmpty: {
             errorMessage: "Kolom nama tidak boleh kosong."
         }
     },
-    tahun_lahir: {
+    rombelId: {
         notEmpty: {
             errorMessage: "Kolom nama tidak boleh kosong."
         }
     },
-    pendidikan: {
+    jam_mulai: {
         notEmpty: {
             errorMessage: "Kolom nama tidak boleh kosong."
         }
     },
-    pekerjaan: {
+    jam_selesai: {
         notEmpty: {
             errorMessage: "Kolom nama tidak boleh kosong."
         }
     },
-    penghasilan: {
+    pegawaiId: {
         notEmpty: {
             errorMessage: "Kolom nama tidak boleh kosong."
         }
     },
-    nik: {
+    hari: {
         notEmpty: {
             errorMessage: "Kolom nama tidak boleh kosong."
         }
     },
-    status_wali: {
-        notEmpty: {
-            errorMessage: "Kolom nama tidak boleh kosong."
-        }
-    }
 }

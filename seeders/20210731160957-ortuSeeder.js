@@ -19,7 +19,7 @@ module.exports = {
         pekerjaan: "Ibu Rumah Tangga",
         penghasilan: "0",
         nik: "1232343454567890",
-        status: 'Ibu',
+        status_wali: 'Ibu',
         userId: 2,
         createdAt: new Date(),
         updatedAt: new Date()

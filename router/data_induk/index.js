@@ -13,6 +13,8 @@ const statusKawinController = require('../../controller/data_induk/status_kawin'
 const sumberGajiController = require('../../controller/data_induk/sumber_gaji')
 const transportasiController = require('../../controller/data_induk/transportasi')
 const tugasController = require('../../controller/data_induk/tugas')
+const jadwalController = require('../../controller/data_induk/jadwal')
+const sekolahController = require('../../controller/sekolah/sekolah')
 
 // validation
 const { checkSchema } = require('express-validator')
@@ -30,10 +32,19 @@ const statusKawinSchema = require('../../validation/data_induk/status_kawin').st
 const sumberGajiSchema = require('../../validation/data_induk/sumber_gaji').sumberGajiSchema
 const transportasiSchema = require('../../validation/data_induk/transportasi').transportasiSchema
 const tugasSchema = require('../../validation/data_induk/tugas').tugasSchema
+const jadwalSchema = require('../../validation/data_induk/jadwal').jadwalSchema
+const sekolahSchema = require('../../validation/sekolah/sekolah').sekolahSchema
 
 // routing 
 // jabatan
 router.post("/jabatan", validate(checkSchema(jabatanSchema)), jabatanController.Create)
+
+// sekolah
+router.post("/sekolah", validate(checkSchema(sekolahSchema)), sekolahController.Create)
+router.put("/sekolah/:id", validate(checkSchema(sekolahSchema)), sekolahController.Update)
+router.get("/sekolah", sekolahController.Read)
+router.get("/sekolah/:id", sekolahController.Show)
+router.delete("/sekolah/:id", sekolahController.Delete)
 
 // jenis tinggal
 router.post("/jenis-tinggal", validate(checkSchema(jenisTinggalSchema)), jenisTinggalController.Create)
@@ -64,5 +75,12 @@ router.post("/transportasi", validate(checkSchema(transportasiSchema)), transpor
 
 // tugas
 router.post("/tugas", validate(checkSchema(tugasSchema)), tugasController.Create)
+
+// jadwal
+router.post("/jadwal", validate(checkSchema(jadwalSchema)), jadwalController.Create)
+router.put("/jadwal/:id", validate(checkSchema(jadwalSchema)), jadwalController.Update)
+router.get("/jadwal", jadwalController.Read)
+router.get("/jadwal/:id", jadwalController.Show)
+router.delete("/jadwal/:id", jadwalController.Delete)
 
 module.exports = router

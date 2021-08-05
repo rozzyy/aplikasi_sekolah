@@ -1,35 +1,25 @@
-exports.ortuSchema = {
-    nama: {
+exports.elearningSchema = {
+    link: {
         notEmpty: {
             errorMessage: "Kolom nama tidak boleh kosong."
         }
     },
-    tahun_lahir: {
+    judul: {
         notEmpty: {
             errorMessage: "Kolom nama tidak boleh kosong."
         }
     },
-    pendidikan: {
+    rombelId: {
         notEmpty: {
             errorMessage: "Kolom nama tidak boleh kosong."
         }
     },
-    pekerjaan: {
+    pelajaranId: {
         notEmpty: {
             errorMessage: "Kolom nama tidak boleh kosong."
         }
     },
-    penghasilan: {
-        notEmpty: {
-            errorMessage: "Kolom nama tidak boleh kosong."
-        }
-    },
-    nik: {
-        notEmpty: {
-            errorMessage: "Kolom nama tidak boleh kosong."
-        }
-    },
-    status_wali: {
+    pegawaiId: {
         notEmpty: {
             errorMessage: "Kolom nama tidak boleh kosong."
         }
