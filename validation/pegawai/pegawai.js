@@ -6,22 +6,37 @@ exports.pegawaiSchema = {
     },
     nuptk: {
         notEmpty: {
-            errorMessage: "Kolom nama tidak boleh kosong."
+            errorMessage: "Kolom nuptk tidak boleh kosong."
         }
     },
     jenis_kelamin: {
         notEmpty: {
-            errorMessage: "Kolom nama tidak boleh kosong."
+            errorMessage: "Kolom jenis kelamin tidak boleh kosong."
         }
     },
     tmpt_lahir: {
         notEmpty: {
-            errorMessage: "Kolom nama tidak boleh kosong."
+            errorMessage: "Kolom tempat lahir tidak boleh kosong."
         }
     },
     tgl_lahir: {
         notEmpty: {
-            errorMessage: "Kolom nama tidak boleh kosong."
+            errorMessage: "Kolom tanggal lahir tidak boleh kosong."
+        }
+    },
+    jenis_ptk: {
+        notEmpty: {
+            errorMessage: "Kolom jenis ptk tidak boleh kosong."
+        }
+    },
+    nip: {
+        notEmpty: {
+            errorMessage: "Kolom nip tidak boleh kosong."
+        }
+    },
+    agama: {
+        notEmpty: {
+            errorMessage: "Kolom agama tidak boleh kosong."
         }
     },
 }

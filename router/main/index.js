@@ -34,8 +34,10 @@ router.delete("/ortu/:id", ortuController.Delete)
 router.post("/pegawai", validate(checkSchema(pegawaiSchema)), pegawaiController.Create)
 router.put("/pegawai/:id", validate(checkSchema(pegawaiSchema)), pegawaiController.Update)
 router.get("/pegawai", pegawaiController.Read)
-router.get("/pegawai/:id", pegawaiController.Read)
+router.get("/pegawai/:id", pegawaiController.Show)
 router.delete("/pegawai/:id", pegawaiController.Delete)
+router.get('/guru', pegawaiController.Guru)
+router.get('/staff', pegawaiController.Staff)
 
 // profil
 router.get("/", tokenVerify, profilController.Profil)

@@ -195,3 +195,45 @@ exports.Delete = async function (req, res) {
         })
     }
 }
+
+exports.Guru = async function (req, res) {
+    try {
+        const pegawaiCollection = await Pegawai.findAll({
+            where: {
+                jabatan: 'guru'
+            }
+        })
+
+        res.status(200).json({
+            status: "success",
+            message: "Data pegawai berhasil ditampilkan.",
+            data: pegawaiCollection
+        })
+    } catch (error) {
+        console.log(error)
+        res.json({
+            msg: "Data pegawai gagal ditampilkan."
+        })
+    }
+}
+
+exports.Staff = async function (req, res) {
+    try {
+        const pegawaiCollection = await Pegawai.findAll({
+            where: {
+                jabatan: 'staff'
+            }
+        })
+
+        res.status(200).json({
+            status: "success",
+            message: "Data pegawai berhasil ditampilkan.",
+            data: pegawaiCollection
+        })
+    } catch (error) {
+        console.log(error)
+        res.json({
+            msg: "Data pegawai gagal ditampilkan."
+        })
+    }
+}

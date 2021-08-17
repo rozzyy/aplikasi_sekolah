@@ -15,6 +15,7 @@ const transportasiController = require('../../controller/data_induk/transportasi
 const tugasController = require('../../controller/data_induk/tugas')
 const jadwalController = require('../../controller/data_induk/jadwal')
 const sekolahController = require('../../controller/sekolah/sekolah')
+const ruanganController = require('../../controller/sekolah/ruangan')
 
 // validation
 const { checkSchema } = require('express-validator')
@@ -34,6 +35,7 @@ const transportasiSchema = require('../../validation/data_induk/transportasi').t
 const tugasSchema = require('../../validation/data_induk/tugas').tugasSchema
 const jadwalSchema = require('../../validation/data_induk/jadwal').jadwalSchema
 const sekolahSchema = require('../../validation/sekolah/sekolah').sekolahSchema
+const ruanganSchema = require('../../validation/sekolah/ruangan').ruanganSchema
 
 // routing 
 // jabatan
@@ -45,6 +47,13 @@ router.put("/sekolah/:id", validate(checkSchema(sekolahSchema)), sekolahControll
 router.get("/sekolah", sekolahController.Read)
 router.get("/sekolah/:id", sekolahController.Show)
 router.delete("/sekolah/:id", sekolahController.Delete)
+
+// ruangan
+router.post("/ruangan", validate(checkSchema(ruanganSchema)), ruanganController.Create)
+router.put("/ruangan/:id", validate(checkSchema(ruanganSchema)), ruanganController.Update)
+router.get("/ruangan", ruanganController.Read)
+router.get("/ruangan/:id", ruanganController.Read)
+router.delete("/ruangan/:id", ruanganController.Delete)
 
 // jenis tinggal
 router.post("/jenis-tinggal", validate(checkSchema(jenisTinggalSchema)), jenisTinggalController.Create)
