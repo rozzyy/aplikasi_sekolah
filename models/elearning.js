@@ -5,12 +5,22 @@ module.exports = (sequelize, DataTypes) => {
     link: DataTypes.STRING,
     file: DataTypes.STRING,
     judul: DataTypes.STRING,
-    rombelId: DataTypes.INTEGER,
-    pelajaranId: DataTypes.INTEGER,
+    mapel: DataTypes.STRING,
+    tingkatanId: DataTypes.INTEGER,
     pegawaiId: DataTypes.INTEGER
   }, {
     paranoid: true
   })
+
+  Elearning.associate = function(models) {
+    Elearning.belongsTo(models.Tingkatan, {
+      foreignKey: 'tingkatanId',
+    })
+
+    Elearning.belongsTo(models.Pegawai, {
+      foreignKey: 'pegawaiId',
+    })
+  }
 
   return Elearning
 }

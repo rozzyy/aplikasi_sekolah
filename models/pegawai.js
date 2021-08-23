@@ -60,6 +60,10 @@ module.exports = (sequelize, DataTypes) => {
     Pegawai.belongsTo(models.User, {
       foreignKey: "userId"
     })
+
+    Pegawai.hasMany(models.Elearning, {
+      foreignKey: "pegawaiId"
+    })
   }
 
   return Pegawai

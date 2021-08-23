@@ -1,4 +1,5 @@
 const Siswa = require('../../models').Siswa
+const Ortu = require('../../models').Ortu
 
 exports.Create = async function (req, res) {
     try {
@@ -64,7 +65,12 @@ exports.Create = async function (req, res) {
 
 exports.Read = async function (req, res) {
     try {
-        const siswaCollection = await Siswa.findAll()
+        const page = req.query.page
+        const limit = req.query.limit
+        const siswaCollection = await Siswa.findAndCountAll({
+            limit: limit,
+            offset: page * limit
+        })
 
         res.status(200).json({
             status: "success",
@@ -84,7 +90,10 @@ exports.Show = async function (req, res) {
         const siswaCollection = await Siswa.findOne({
             where: {
                 id: req.params.id,
-            }
+            },
+            include: [{
+                model: Ortu
+            }]
         })
 
         res.status(200).json({

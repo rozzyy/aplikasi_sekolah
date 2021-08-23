@@ -38,6 +38,7 @@ router.get("/pegawai/:id", pegawaiController.Show)
 router.delete("/pegawai/:id", pegawaiController.Delete)
 router.get('/guru', pegawaiController.Guru)
 router.get('/staff', pegawaiController.Staff)
+router.get('/user/:id', pegawaiController.Profil)
 
 // profil
 router.get("/", tokenVerify, profilController.Profil)

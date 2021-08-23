@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Elearnings', {
@@ -17,14 +18,26 @@ module.exports = {
       file: {
         type: Sequelize.STRING
       },
-      rombelId: {
-        type: Sequelize.INTEGER
+      mapel: {
+        type: Sequelize.STRING
       },
-      pelajaranId: {
-        type: Sequelize.INTEGER
+      tingkatanId: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        references: {
+          model: 'Tingkatans',
+          key: 'id'
+        },
+        onDelete: 'CASCADE'
       },
       pegawaiId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        references: {
+          model: 'Pegawais',
+          key: 'id'
+        },
+        onDelete: 'CASCADE'
       },
       createdAt: {
         allowNull: false,

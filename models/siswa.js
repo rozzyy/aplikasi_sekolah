@@ -56,5 +56,10 @@ module.exports = (sequelize, DataTypes) => {
     })
   }
 
+  Siswa.associate = function(models) {
+    Siswa.hasMany(models.Ortu, {
+      foreignKey: 'siswaId',
+    })
+  }
   return Siswa
 }

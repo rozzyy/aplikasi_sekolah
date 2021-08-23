@@ -8,7 +8,9 @@ module.exports = (sequelize, DataTypes) => {
     pekerjaan: DataTypes.STRING,
     penghasilan: DataTypes.STRING,
     nik: DataTypes.STRING,
-    status_wali: DataTypes.STRING
+    status: DataTypes.STRING,
+    alamat: DataTypes.STRING,
+    no_telepon: DataTypes.STRING
   }, {
     paranoid: true
   })
@@ -16,6 +18,9 @@ module.exports = (sequelize, DataTypes) => {
   Ortu.associate = function(models) {
     Ortu.belongsTo(models.User, {
       foreignKey: "userId"
+    })
+    Ortu.belongsTo(models.Siswa, {
+      foreignKey: "siswaId"
     })
   }
 

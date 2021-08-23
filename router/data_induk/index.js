@@ -16,6 +16,8 @@ const tugasController = require('../../controller/data_induk/tugas')
 const jadwalController = require('../../controller/data_induk/jadwal')
 const sekolahController = require('../../controller/sekolah/sekolah')
 const ruanganController = require('../../controller/sekolah/ruangan')
+const tingkatanController = require('../../controller/data_induk/tingkatan')
+const tahunAjaranController = require('../../controller/data_induk/tahun_ajaran')
 
 // validation
 const { checkSchema } = require('express-validator')
@@ -36,6 +38,7 @@ const tugasSchema = require('../../validation/data_induk/tugas').tugasSchema
 const jadwalSchema = require('../../validation/data_induk/jadwal').jadwalSchema
 const sekolahSchema = require('../../validation/sekolah/sekolah').sekolahSchema
 const ruanganSchema = require('../../validation/sekolah/ruangan').ruanganSchema
+const tahunAjaranSchema = require('../../validation/data_induk/tahun_ajaran').tahunAjaranSchema
 
 // routing 
 // jabatan
@@ -60,9 +63,15 @@ router.post("/jenis-tinggal", validate(checkSchema(jenisTinggalSchema)), jenisTi
 
 // jurusan
 router.post("/jurusan", validate(checkSchema(jurusanSchema)), jurusanController.Create)
+router.put("/jurusan/:id", validate(checkSchema(jurusanSchema)), jurusanController.Update)
+router.get('/jurusan', jurusanController.Read)
+router.get('/jurusan/:id', jurusanController.Show)
+router.delete('/jurusan/:id', jurusanController.Delete)
 
 // kelas
 router.post("/kelas", validate(checkSchema(kelasSchema)), kelasController.Create)
+router.get('/kelas', kelasController.Read)
+router.get('/kelas/options', kelasController.Options)
 
 // rombel
 router.post("/rombel", validate(checkSchema(rombelSchema)), rombelController.Create)
@@ -91,5 +100,15 @@ router.put("/jadwal/:id", validate(checkSchema(jadwalSchema)), jadwalController.
 router.get("/jadwal", jadwalController.Read)
 router.get("/jadwal/:id", jadwalController.Show)
 router.delete("/jadwal/:id", jadwalController.Delete)
+
+// tahun ajaran
+router.post("/tahun-ajaran", validate(checkSchema(tahunAjaranSchema)), tahunAjaranController.Create)
+router.put("/tahun-ajaran/:id", validate(checkSchema(tahunAjaranSchema)), tahunAjaranController.Update)
+router.get("/tahun-ajaran", tahunAjaranController.Read)
+router.get("/tahun-ajaran/:id", tahunAjaranController.Show)
+router.delete("/tahun-ajaran/:id", tahunAjaranController.Delete)
+
+// tingkatan
+router.get("/tingkatan", tingkatanController.Read)
 
 module.exports = router

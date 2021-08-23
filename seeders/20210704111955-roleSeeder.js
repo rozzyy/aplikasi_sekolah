@@ -28,7 +28,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
-        name: "pegawai",
+        name: "staff",
         createdAt: new Date(),
         updatedAt: new Date()
       },

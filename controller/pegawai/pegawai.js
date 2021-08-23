@@ -1,4 +1,5 @@
 const Pegawai = require('../../models').Pegawai
+const { Op } = require('sequelize')
 
 exports.Create = async function (req, res) {
     try {
@@ -52,6 +53,7 @@ exports.Create = async function (req, res) {
             lintang: req.body.lintang,
             bujur: req.body.bujur,
             nuks: req.body.nuks,
+            jabatan: req.body.jabatan,
             userId: req.body.userId
         })
 
@@ -158,6 +160,7 @@ exports.Update =  async function (req, res) {
             lintang: req.body.lintang,
             bujur: req.body.bujur,
             nuks: req.body.nuks,
+            jabatan: req.body.jabatan,
             userId: req.body.userId
         }, {
             where: {
@@ -198,7 +201,11 @@ exports.Delete = async function (req, res) {
 
 exports.Guru = async function (req, res) {
     try {
-        const pegawaiCollection = await Pegawai.findAll({
+        const page = req.query.page
+        const limit = req.query.limit
+        const pegawaiCollection = await Pegawai.findAndCountAll({
+            limit: limit,
+            offset: page * limit,
             where: {
                 jabatan: 'guru'
             }
@@ -219,7 +226,11 @@ exports.Guru = async function (req, res) {
 
 exports.Staff = async function (req, res) {
     try {
-        const pegawaiCollection = await Pegawai.findAll({
+        const page = req.query.page
+        const limit = req.query.limit
+        const pegawaiCollection = await Pegawai.findAndCountAll({
+            limit: limit,
+            offset: page * limit,
             where: {
                 jabatan: 'staff'
             }
@@ -228,6 +239,27 @@ exports.Staff = async function (req, res) {
         res.status(200).json({
             status: "success",
             message: "Data pegawai berhasil ditampilkan.",
+            data: pegawaiCollection
+        })
+    } catch (error) {
+        console.log(error)
+        res.json({
+            msg: "Data pegawai gagal ditampilkan."
+        })
+    }
+}
+
+exports.Profil = async function (req, res) {
+    try {
+        const pegawaiCollection = await Pegawai.findOne({
+            where: {
+                userId: req.params.id
+            }
+        })
+
+        res.status(200).json({
+            status: "success",
+            message: "Data detail pegawai berhasil ditampilkan.",
             data: pegawaiCollection
         })
     } catch (error) {

@@ -1,4 +1,6 @@
 const Elearning = require('../../models').Elearning
+const Tingkatan = require('../../models').Tingkatan
+const Pegawai = require('../../models').Pegawai
 
 exports.Create = async function (req, res) {
     try {
@@ -10,8 +12,8 @@ exports.Create = async function (req, res) {
         const elearningCollection = await Elearning.create({
             link: req.body.link,
             judul: req.body.judul,
-            rombelId: req.body.rombelId,
-            pelajaranId: req.body.pelajaranId,
+            mapel: req.body.mapel,
+            tingkatanId: req.body.tingkatanId,
             pegawaiId: req.body.pegawaiId,
             file: file_url
         })
@@ -30,7 +32,17 @@ exports.Create = async function (req, res) {
 
 exports.Read = async function (req, res) {
     try {
-        const elearningCollection = await Elearning.findAll()
+        const elearningCollection = await Elearning.findAll({
+            include: [
+                {
+                    model: Tingkatan
+                },
+                {
+                    model: Pegawai,
+                    attributes: ['nama']
+                }
+            ]
+        })
 
         res.status(200).json({
             status: "success",

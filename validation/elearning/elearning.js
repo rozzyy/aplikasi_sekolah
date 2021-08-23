@@ -9,12 +9,12 @@ exports.elearningSchema = {
             errorMessage: "Kolom nama tidak boleh kosong."
         }
     },
-    rombelId: {
+    mapel: {
         notEmpty: {
             errorMessage: "Kolom nama tidak boleh kosong."
         }
     },
-    pelajaranId: {
+    tingkatanId: {
         notEmpty: {
             errorMessage: "Kolom nama tidak boleh kosong."
         }

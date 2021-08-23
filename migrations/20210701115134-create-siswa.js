@@ -164,7 +164,7 @@ module.exports = {
           key: 'id'
         },
         onDelete: "CASCADE"
-      },
+      }
     });
   },
   down: async (queryInterface, Sequelize) => {

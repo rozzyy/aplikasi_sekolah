@@ -26,7 +26,13 @@ module.exports = {
       nik: {
         type: Sequelize.STRING
       },
-      status_wali: {
+      status: {
+        type: Sequelize.STRING
+      },
+      alamat: {
+        type: Sequelize.STRING
+      },
+      no_telepon: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -46,6 +52,15 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: 'Users',
+          key: 'id'
+        },
+        onDelete: "CASCADE"
+      },
+      siswaId: {
+        allowNull: true,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Siswas',
           key: 'id'
         },
         onDelete: "CASCADE"

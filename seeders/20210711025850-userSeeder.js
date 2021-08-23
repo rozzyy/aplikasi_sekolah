@@ -23,7 +23,7 @@ module.exports = {
        password: hash,
        createdAt: new Date(),
        updatedAt: new Date(),
-       roleId: 1
+       roleId: 4
      },
      {
       nama: "Farah",
@@ -32,7 +32,7 @@ module.exports = {
       password: hash,
       createdAt: new Date(),
       updatedAt: new Date(),
-      roleId: 2
+      roleId: 3
     }
    ])
   },

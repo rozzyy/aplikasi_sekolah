@@ -4,9 +4,9 @@ exports.jurusanSchema = {
             errorMessage: "Kolom nama tidak boleh kosong."
         }
     },
-    kode: {
+    akreditasi: {
         notEmpty: {
-            errorMessage: "Kolom nama tidak boleh kosong."
+            errorMessage: "Kolom akreditasi tidak boleh kosong."
         }
     },
 }

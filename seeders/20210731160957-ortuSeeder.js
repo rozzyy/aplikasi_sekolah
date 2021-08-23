@@ -19,8 +19,26 @@ module.exports = {
         pekerjaan: "Ibu Rumah Tangga",
         penghasilan: "0",
         nik: "1232343454567890",
-        status_wali: 'Ibu',
+        status: 'Ibu',
+        alamat: 'Jalan Cengkeh No. 1',
+        no_telepon: '081232345456',
         userId: 2,
+        siswaId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        nama: "Jhoni",
+        tahun_lahir: new Date("1980"),
+        pendidikan: "SMA",
+        pekerjaan: "Wiraswasta",
+        penghasilan: "0",
+        nik: "1232343454567890",
+        status: 'Ayah',
+        alamat: 'Jalan Cengkeh No. 1',
+        no_telepon: '081232345456',
+        userId: 2,
+        siswaId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       }
