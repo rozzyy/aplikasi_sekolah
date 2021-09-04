@@ -102,3 +102,22 @@ exports.Delete = async function (req, res) {
         })
     }
 }
+
+exports.Options = async function (req, res) {
+    try {
+        const tahunAjaranCollection = await TahunAjaran.findAll({
+            attributes: ['id', 'nama']
+        })
+
+        res.status(200).json({
+            status: "success",
+            message: "Data tahun ajaran berhasil ditampilkan.",
+            data: tahunAjaranCollection
+        })
+    } catch (error) {
+        console.log(error)
+        res.json({
+            msg: "Data tahun ajaran gagal ditampilkan."
+        })
+    }
+}

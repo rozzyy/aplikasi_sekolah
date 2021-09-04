@@ -60,6 +60,10 @@ module.exports = (sequelize, DataTypes) => {
     Siswa.hasMany(models.Ortu, {
       foreignKey: 'siswaId',
     })
+
+    Siswa.hasOne(models.AbsenSiswa, {
+      foreignKey: 'siswaId'
+    })
   }
   return Siswa
 }

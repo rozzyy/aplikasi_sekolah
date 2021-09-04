@@ -58,7 +58,7 @@ exports.Options = async function (req, res) {
         const kelasCollection = await Kelas.findAll({
             attributes: ['nama']
         })
-
+        
         res.status(200).json({
             status: "success",
             message: "Data berhasil ditampilkan.",

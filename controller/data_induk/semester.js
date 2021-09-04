@@ -1,29 +1,37 @@
-const Jurusan = require('../../models').Jurusan
+const Semester = require('../../models').Semester
+const TahunAjaran = require('../../models').TahunAjaran
 
 exports.Create = async function (req, res) {
     try {
-        const jurusanCollection = await Jurusan.create({
+        const semesterCollection = await Semester.create({
             nama: req.body.nama,
-            akreditasi: req.body.akreditasi,
+            tgl_mulai: req.body.tgl_mulai,
+            tgl_akhir: req.body.tgl_akhir,
+            status: req.body.status,
+            tahun_ajaran_id: req.body.tahun_ajaran_id
         })
 
         res.status(200).json({
             status: "success",
-            message: "Data berhasil ditambah.",
+            message: "Data berhasil ditambah"
         })
+
     } catch (error) {
         console.log(error)
         res.json({
-            msg: "Gagal menambah data jurusan."
+            msg: 'Gagal menambah data.'
         })
     }
 }
 
 exports.Update = async function (req, res) {
     try {
-        const jurusanCollection = await Jurusan.update({
+        const semesterCollection = await Semester.update({
             nama: req.body.nama,
-            akreditasi: req.body.akreditasi,
+            tgl_mulai: req.body.tgl_mulai,
+            tgl_akhir: req.body.tgl_akhir,
+            status: req.body.status,
+            tahun_ajaran_id: req.body.tahun_ajaran_id
         }, {
             where: {
                 id: req.params.id
@@ -37,7 +45,7 @@ exports.Update = async function (req, res) {
     } catch (error) {
         console.log(error)
         res.json({
-            msg: "Gagal merubah data jurusan."
+            msg: "Gagal merubah data."
         })
     }
 }
@@ -46,27 +54,32 @@ exports.Read = async function (req, res) {
     try {
         const page = req.query.page
         const limit = req.query.limit
-        const jurusanCollection = await Jurusan.findAndCountAll({
+        const semesterCollection = await Semester.findAndCountAll({
             limit: limit,
-            offset: page * limit
+            offset: page * limit,
+            include: [
+                {
+                    model: TahunAjaran
+                }
+            ]
         })
 
         res.status(200).json({
             status: "success",
-            message: "Data jurusan berhasil ditampilkan.",
-            data: jurusanCollection
+            message: "Data semester berhasil ditampilkan.",
+            data: semesterCollection
         })
     } catch (error) {
         console.log(error)
         res.json({
-            msg: "Data jurusan gagal ditampilkan."
+            msg: "Data semester gagal ditampilkan."
         })
     }
 }
 
 exports.Show = async function (req, res) {
     try {
-        const jurusanCollection = await Jurusan.findOne({
+        const semesterCollection = await Semester.findOne({
             where: {
                 id: req.params.id 
             }
@@ -74,20 +87,20 @@ exports.Show = async function (req, res) {
 
         res.status(200).json({
             status: "success",
-            message: "Data jurusan berhasil ditampilkan.",
-            data: jurusanCollection
+            message: "Data Semester berhasil ditampilkan.",
+            data: semesterCollection
         })
     } catch (error) {
         console.log(error)
         res.json({
-            msg: "Data jurusan gagal ditampilkan."
+            msg: "Data semester gagal ditampilkan."
         })
     }
 }
 
 exports.Delete = async function (req, res) {
     try {
-        await Jurusan.destroy({
+        await Semester.destroy({
             where: {
                 id: req.params.id
             }
@@ -99,26 +112,7 @@ exports.Delete = async function (req, res) {
     } catch (error) {
         console.log(error)
         res.json({
-            msg: "Gagal menghapus data pegawai."
-        })
-    }
-}
-
-exports.Options = async function (req, res) {
-    try {
-        const jurusanCollection = await Jurusan.findAll({
-            attributes: ['id', 'nama']
-        })
-
-        res.status(200).json({
-            status: "success",
-            message: "Data jurusan berhasil ditampilkan.",
-            data: jurusanCollection
-        })
-    } catch (error) {
-        console.log(error)
-        res.json({
-            msg: "Data jurusan gagal ditampilkan."
+            msg: "Gagal menghapus data semester."
         })
     }
 }

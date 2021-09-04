@@ -7,6 +7,12 @@ module.exports = (sequelize, DataTypes) => {
     paranoid: true
   })
 
+  TahunAjaran.associate = function(models) {
+    TahunAjaran.hasMany(models.Semester, {
+      foreignKey: 'tahun_ajaran_id'
+    })
+  }
+
   return TahunAjaran
 }
 

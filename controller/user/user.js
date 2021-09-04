@@ -27,9 +27,17 @@ exports.userCreate = async function (req, res) {
 
 exports.userAll = async function (req, res) {
     try {
-        const userCollection = await User.findAll({
+        let condition = req.query.role
+        const page = req.query.page
+        const limit = req.query.limit
+        const userCollection = await User.findAndCountAll({
+            limit: limit,
+            offset: page * limit,
             attributes: {
                 exclude: ["password"]
+            },
+            where: {
+                roleId: condition
             },
             include: ["Role"]
         })
