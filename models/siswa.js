@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
     skhun: DataTypes.STRING,
     penerima_kps: DataTypes.BOOLEAN,
     no_kps: DataTypes.STRING,
-    rombel: DataTypes.STRING,
+    rombel_id: DataTypes.INTEGER,
     no_pun: DataTypes.STRING,
     no_ijazah: DataTypes.STRING,
     penerima_kip: DataTypes.BOOLEAN,
@@ -53,6 +53,10 @@ module.exports = (sequelize, DataTypes) => {
   Siswa.associate = function(models) {
     Siswa.belongsTo(models.User, {
       foreignKey: "userId"
+    })
+
+    Siswa.belongsTo(models.Rombel, {
+      foreignKey: 'rombel_id'
     })
   }
 

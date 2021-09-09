@@ -1,17 +1,12 @@
 exports.rombelSchema = {
-    kelas: {
+    kelas_id: {
         notEmpty: {
-            errorMessage: "Kolom nama tidak boleh kosong."
+            errorMessage: "Kolom kelas tidak boleh kosong."
         }
     },
-    jurusan: {
+    tahun_ajaran_id: {
         notEmpty: {
-            errorMessage: "Kolom nama tidak boleh kosong."
+            errorMessage: "Kolom tahun ajaran tidak boleh kosong."
         }
-    },
-    ruang: {
-        notEmpty: {
-            errorMessage: "Kolom nama tidak boleh kosong."
-        }
-    },
+    }
 }

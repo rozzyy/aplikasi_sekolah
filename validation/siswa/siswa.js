@@ -49,11 +49,6 @@ exports.siswaSchema = {
             errorMessage: "Kolom nomor handphone tidak boleh kosong."
         }
     },
-    rombel: {
-        notEmpty: {
-            errorMessage: "Kolom rombel tidak boleh kosong."
-        }
-    },
     alamat: {
         notEmpty: {
             errorMessage: "Kolom alamat tidak boleh kosong."

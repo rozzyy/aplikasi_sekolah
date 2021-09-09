@@ -17,6 +17,10 @@ module.exports = (sequelize, DataTypes) => {
     Kelas.belongsTo(models.Tingkatan, {
       foreignKey: 'tingkatanId'
     })
+
+    Kelas.hasOne(models.Rombel, {
+      foreignKey: 'kelas_id'
+    })
   }
 
   return Kelas

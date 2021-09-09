@@ -23,6 +23,30 @@ exports.Create = async function (req, res) {
     }
 }
 
+exports.Update = async function (req, res) {
+    try {
+        const kelasCollection = await Kelas.update({
+            nama: req.body.nama,
+            jurusanId: req.body.jurusanId,
+            tingkatanId: req.body.tingkatanId,
+        }, {
+            where: {
+                id: req.params.id
+            }
+        })
+
+        res.status(200).json({
+            status: "success",
+            message: "Data berhasil dirubah.",
+        })
+    } catch (error) {
+        console.log(error)
+        res.json({
+            msg: "Gagal merubah data kelas."
+        })
+    }
+}
+
 exports.Read = async function (req, res) {
     try {
         const page = req.query.page
@@ -53,10 +77,31 @@ exports.Read = async function (req, res) {
     }
 }
 
+exports.Show = async function (req, res) {
+    try {
+        const kelasCollection = await Kelas.findOne({
+            where: {
+                id: req.params.id 
+            }
+        })
+
+        res.status(200).json({
+            status: "success",
+            message: "Data kelas berhasil ditampilkan.",
+            data: kelasCollection
+        })
+    } catch (error) {
+        console.log(error)
+        res.json({
+            msg: "Data kelas gagal ditampilkan."
+        })
+    }
+}
+
 exports.Options = async function (req, res) {
     try {
         const kelasCollection = await Kelas.findAll({
-            attributes: ['nama']
+            attributes: ['id', 'nama']
         })
         
         res.status(200).json({

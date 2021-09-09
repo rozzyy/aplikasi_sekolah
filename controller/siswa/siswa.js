@@ -27,7 +27,7 @@ exports.Create = async function (req, res) {
             skhun:req.body.skhun,
             penerima_kip: req.body.penerima_kip,
             no_kip: req.body.no_kip,
-            rombel: req.body.rombel,
+            rombel_id: req.body.rombel_id,
             no_pun: req.body.no_pun,
             no_ijazah: req.body.no_ijazah,
             penerima_kip: req.body.penerima_kip,
@@ -135,7 +135,7 @@ exports.Update = async function (req, res) {
             skhun:req.body.skhun,
             penerima_kip: req.body.penerima_kip,
             no_kip: req.body.no_kip,
-            rombel: req.body.rombel,
+            rombel_id: req.body.rombel_id,
             no_pun: req.body.no_pun,
             no_ijazah: req.body.no_ijazah,
             penerima_kip: req.body.penerima_kip,
@@ -165,7 +165,6 @@ exports.Update = async function (req, res) {
         res.status(200).json({
             status: "success",
             message: "Data berhasil dirubah.",
-            data: siswaCollection
         })
     } catch (error) {
         console.log(error)

@@ -41,6 +41,7 @@ const sekolahSchema = require('../../validation/sekolah/sekolah').sekolahSchema
 const ruanganSchema = require('../../validation/sekolah/ruangan').ruanganSchema
 const tahunAjaranSchema = require('../../validation/data_induk/tahun_ajaran').tahunAjaranSchema
 const semesterSchema = require('../../validation/data_induk/semester').semesterSchema
+const rombel = require('../../models/rombel')
 
 // routing 
 // jabatan
@@ -73,11 +74,15 @@ router.get('/jurusan-options', jurusanController.Options)
 
 // kelas
 router.post("/kelas", validate(checkSchema(kelasSchema)), kelasController.Create)
+router.put("/kelas/:id", validate(checkSchema(kelasSchema)), kelasController.Update)
 router.get('/kelas', kelasController.Read)
-router.get('/kelas/options', kelasController.Options)
+router.get('/kelas/:id', kelasController.Show)
+router.get('/kelas-options', kelasController.Options)
 
 // rombel
-router.post("/rombel", validate(checkSchema(rombelSchema)), rombelController.Create)
+router.get("/rombel", rombelController.Read)
+router.post('/rombel', validate(checkSchema(rombelSchema)), rombelController.Create)
+router.get('/rombel/search', rombelController.SearchByKelasAndTahun)
 
 // lembaga
 router.post("/lembaga", validate(checkSchema(lembagaSchema)), lembagaController.Create)
