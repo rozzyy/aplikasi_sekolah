@@ -14,7 +14,7 @@ exports.Create = async function (req, res) {
     } catch (error) {
         console.log(error)
         res.json({
-            msg: "Gagal menambah data lembaga."
+            msg: "Gagal menambah data."
         })
     }
 }
