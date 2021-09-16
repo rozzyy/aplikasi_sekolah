@@ -83,6 +83,7 @@ router.get('/kelas-options', kelasController.Options)
 router.get("/rombel", rombelController.Read)
 router.post('/rombel', validate(checkSchema(rombelSchema)), rombelController.Create)
 router.get('/rombel/search', rombelController.SearchByKelasAndTahun)
+router.get('/rombel/check', rombelController.CheckRombel)
 
 // lembaga
 router.post("/lembaga", validate(checkSchema(lembagaSchema)), lembagaController.Create)
