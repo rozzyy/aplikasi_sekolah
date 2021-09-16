@@ -110,7 +110,7 @@ exports.CheckRombel = async function (req, res) {
     } catch (error) {
         console.log(error)
         res.json({
-            msg: 'Data gagal ditemukan.'
+            msg: 'Data gagal ditampilkan.'
         })
     }
 }
