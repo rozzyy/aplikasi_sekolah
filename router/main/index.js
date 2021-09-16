@@ -20,6 +20,7 @@ const ortuController = require('../../controller/ortu/ortu')
 const pegawaiController = require('../../controller/pegawai/pegawai')
 const profilController = require('../../controller/profil/profil')
 const absenSiswaController = require('../../controller/siswa/absensiswa')
+const absenGuruController = require('../../controller/pegawai/absenguru')
 
 // validation
 const { checkSchema } = require('express-validator')
@@ -28,8 +29,9 @@ const siswaSchema = require('../../validation/siswa/siswa').siswaSchema
 const ortuSchema = require('../../validation/ortu/ortu').ortuSchema
 const pegawaiSchema = require('../../validation/pegawai/pegawai').pegawaiSchema
 const absenSiswaSchema = require('../../validation/siswa/absensiswa').absenSiswaSchema
+const absensiGuruSchema = require('../../validation/pegawai/absensiguru').absensiGuruSchema
 
-// routing
+// routing "/profil/"
 // siswa
 router.post("/siswa", validate(checkSchema(siswaSchema)), siswaController.Create)
 router.get("/siswa", siswaController.Read)
@@ -39,6 +41,9 @@ router.delete("/siswa/:id", siswaController.Delete)
 
 // absensi siswa
 router.post("/absensi/siswa", multer({ storage }).single('foto'), validate(checkSchema(absenSiswaSchema)), absenSiswaController.Create)
+
+// absensi by guru
+router.post("/absensi/guru", validate(checkSchema(absensiGuruSchema)), absenGuruController.Create)
 
 // ortu
 router.post("/ortu", validate(checkSchema(ortuSchema)), ortuController.Create)

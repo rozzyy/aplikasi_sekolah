@@ -19,11 +19,10 @@ module.exports = {
          nama: faker.name.findName(),
          nisn: '1029370' + i,
          nipd: '1890' + i,
-         rombel: 'X-TKJ-3',
          jenis_kelamin: 'laki-laki',
          createdAt: new Date(),
          updatedAt: new Date()
-       })
+       }) 
      }
      return queryInterface.bulkInsert("Siswas", dummyJSON, {})
   },

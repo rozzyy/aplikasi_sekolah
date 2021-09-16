@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
     TahunAjaran.hasMany(models.Semester, {
       foreignKey: 'tahun_ajaran_id'
     })
+
+    TahunAjaran.hasMany(models.Rombel, {
+      foreignKey: 'tahun_ajaran_id'
+    })
   }
 
   return TahunAjaran
